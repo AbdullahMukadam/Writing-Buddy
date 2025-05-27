@@ -31,7 +31,7 @@ function Home() {
       const allBlogs = await userServices.getDocuments();
       const recentBlogs = allBlogs.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-      // Filter to find the blogs of the active user
+      
       const userSpecificBlogs = activeUser
         ? recentBlogs.filter((blog) => blog.UserId === activeUser.uid)
         : [];
@@ -40,7 +40,7 @@ function Home() {
     };
 
     fetchRecentBlogs();
-  }, [activeUser]); // Add activeUser as a dependency to refetch blogs when the active user changes
+  }, [activeUser]); 
 
   const toggleUserBlogs = () => {
     setUserBlogsExpanded(!userBlogsExpanded);
